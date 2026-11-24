@@ -1,0 +1,36 @@
+Homework 01 – Observations
+
+Website: https://demowebshop.tricentis.com/
+
+I compared 10 HTML tags using Selenium, SelectorsHub and Chrome DevTools Console.
+
+7 out of 10 tags returned identical results across all three tools.
+
+The following differences were observed:
+
+Tag   | Selenium | SelectorsHub | Console
+div   | 182      | 165          | 182
+img   | 42       | 25           | 25
+span  | 23       | 24           | 23
+
+Additional investigation:
+
+Without waiting, Selenium found 10 img and 150 div elements.
+
+With time.sleep(5), different runs returned:
+- 25 img and 165 div elements.
+- 42 img and 182 div elements.
+
+Possible reasons:
+- Dynamic DOM changes.
+- Asynchronous loading.
+- Different execution times.
+- Browser extensions.
+
+Conclusion:
+
+Both TAG_NAME and CSS_SELECTOR returned identical results for all 10 tags in Selenium.
+
+A fixed waiting time does not guarantee stable results. In future tests, WebDriverWait should be used to wait for specific conditions.
+
+The exact causes of the differences have not yet been confirmed.number of elements depends on the moment of execution. A fixed waiting time does not guarantee stable results. In future tests, WebDriverWait should be used to wait for specific conditions.
